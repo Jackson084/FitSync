@@ -1,13 +1,11 @@
 /* crie as outras paginas css */
-/* Resetando margens e preenchimentos padrões */
-/* Reset de estilos padrão */
+/* Reset e base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Corpo da página */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f9;
@@ -18,7 +16,7 @@ body {
   height: 100vh;
 }
 
-/* Container principal */
+/* Container */
 .container {
   width: 100%;
   max-width: 600px;
@@ -28,63 +26,43 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 }
 
-/* Cabeçalho com perfil do usuário */
+/* Cabeçalho e perfil */
 header {
   background-color: #6A4C9C;
   padding: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  color: white;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 
-/* Estilo do perfil */
 .profile {
-  display: flex;
-  align-items: center;
-}
-
-.profile-img {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
+  border: 2px dashed #fff;
   border-radius: 50%;
-  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
 }
 
-.profile-info .username {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.profile-info .user-email {
+.register-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
   font-size: 14px;
 }
 
-.qrcode-container {
-  text-align: center;
-}
-
-.qrcode-btn {
-  background-color: #FFC107;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.qrcode-btn:hover {
-  transform: scale(1.1);
-}
-
-/* Tela de boas-vindas */
+/* Conteúdo principal */
 main {
   flex-grow: 1;
   display: flex;
@@ -92,12 +70,18 @@ main {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  text-align: center;
 }
 
 .welcome-container h1 {
   font-size: 24px;
-  color: #333;
-  text-align: center;
+  margin-bottom: 10px;
+}
+
+.motivacional {
+  font-style: italic;
+  font-size: 16px;
+  color: #6A4C9C;
   margin-bottom: 20px;
 }
 
@@ -108,30 +92,148 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Menu inferior */
-footer {
+/* Botão flutuante com animação */
+.floating-menu-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
   background-color: #6A4C9C;
-  display: flex;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 26px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  z-index: 1000;
+}
+
+.floating-menu-btn.rotate {
+  transform: rotate(45deg);
+}
+
+/* Menu inferior animado */
+.bottom-menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
   justify-content: space-around;
-  padding: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  padding: 10px 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 999;
+}
+
+.bottom-menu.active {
+  transform: translateY(0);
 }
 
 .menu-btn {
   background-color: #FFC107;
   color: white;
   border: none;
-  padding: 12px 25px;
-  border-radius: 5px;
-  font-size: 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
   cursor: pointer;
-  transition: transform 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
 .menu-btn:hover {
-  transform: scale(1.1);
+  background-color: #e0a800;
+}
+
+/* Modal de cadastro */
+.modal-cadastro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.form-cadastro {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 300px;
+  position: relative;
+}
+
+.form-cadastro h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-cadastro input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-cadastro input:invalid {
+  border-color: red;
+}
+
+.form-cadastro button {
+  background-color: #6A4C9C;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-cadastro button:hover {
+  background-color: #583b88;
+}
+
+.form-cadastro #mensagem {
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+}
+
+.fechar {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Toast de notificação */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #6A4C9C;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
 }
 
 /* Responsividade */
@@ -141,25 +243,23 @@ footer {
     padding: 10px;
   }
 
-  .profile-img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .profile-info .username {
-    font-size: 16px;
-  }
-
-  .profile-info .user-email {
-    font-size: 12px;
+  .profile {
+    width: 60px;
+    height: 60px;
   }
 
   .app-cover {
     max-width: 90%;
   }
 
+  .floating-menu-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+
   .menu-btn {
-    font-size: 14px;
-    padding: 10px 20px;
+    font-size: 12px;
+    padding: 8px;
   }
 }
