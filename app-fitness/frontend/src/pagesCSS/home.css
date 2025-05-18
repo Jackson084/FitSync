@@ -1,1 +1,124 @@
 /* crie as outras paginas css */
+/* Resetando margens e preenchimentos padrões */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container principal */
+.container {
+  width: 100%;
+  max-width: 600px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Cabeçalho com perfil do usuário */
+header {
+  background-color: #6A4C9C; 
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.profile-info .username {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.profile-info .user-email {
+  font-size: 14px;
+}
+
+.qrcode-container {
+  text-align: center;
+}
+
+.qrcode-btn {
+  background-color: #FFC107;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.qrcode-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Main com boas-vindas e imagem do app */
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.welcome-container h1 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.app-cover {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+/* Menu inferior */
+footer {
+  background-color: #6A4C9C; /* Roxo */
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.menu-btn {
+  background-color: #FFC107;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.menu-btn:hover {
+  transform: scale(1.1);
+}

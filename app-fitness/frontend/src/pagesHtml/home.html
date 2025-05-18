@@ -1,12 +1,43 @@
 <!--crie a pagina home.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Fitness</title>
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    
+  <div class="container">
+    <!-- Parte superior com perfil do usuário -->
+    <header>
+      <div class="profile">
+        <img src="usuario.jpg" alt="Foto de Perfil" class="profile-img">
+        <div class="profile-info">
+          <p class="username">João Silva</p>
+          <p class="user-email">joao@email.com</p>
+        </div>
+      </div>
+      <div class="qrcode-container">
+        <button class="qrcode-btn">Liberar Acesso via QR Code</button>
+      </div>
+    </header>
+
+    <!-- Tela de boas-vindas -->
+    <main>
+      <div class="welcome-container">
+        <h1>Bem-vindo ao App Fitness!</h1>
+        <img src="app-cover.jpg" alt="Capa do App" class="app-cover">
+      </div>
+    </main>
+
+    <!-- Menu inferior -->
+    <footer>
+      <button class="menu-btn">Início</button>
+      <button class="menu-btn">Exercícios</button>
+      <button class="menu-btn">Dieta</button>
+      <button class="menu-btn">Configurações</button>
+    </footer>
+  </div>
 </body>
 </html>
