@@ -1,5 +1,6 @@
 /* crie as outras paginas css */
 /* Resetando margens e preenchimentos padrões */
+/* Reset de estilos padrão */
 * {
   margin: 0;
   padding: 0;
@@ -8,8 +9,8 @@
 
 /* Corpo da página */
 body {
-  font-family: Arial, sans-serif;
-  background-color: white;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
   color: #333;
   display: flex;
   justify-content: center;
@@ -22,6 +23,8 @@ body {
   width: 100%;
   max-width: 600px;
   background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -29,14 +32,17 @@ body {
 
 /* Cabeçalho com perfil do usuário */
 header {
-  background-color: #6A4C9C; 
+  background-color: #6A4C9C;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
+/* Estilo do perfil */
 .profile {
   display: flex;
   align-items: center;
@@ -71,13 +77,14 @@ header {
   font-size: 16px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .qrcode-btn:hover {
   transform: scale(1.1);
 }
 
-/* Main com boas-vindas e imagem do app */
+/* Tela de boas-vindas */
 main {
   flex-grow: 1;
   display: flex;
@@ -98,14 +105,17 @@ main {
   width: 100%;
   max-width: 400px;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Menu inferior */
 footer {
-  background-color: #6A4C9C; /* Roxo */
+  background-color: #6A4C9C;
   display: flex;
   justify-content: space-around;
-  padding: 10px;
+  padding: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .menu-btn {
@@ -117,8 +127,39 @@ footer {
   font-size: 16px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menu-btn:hover {
   transform: scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .profile-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile-info .username {
+    font-size: 16px;
+  }
+
+  .profile-info .user-email {
+    font-size: 12px;
+  }
+
+  .app-cover {
+    max-width: 90%;
+  }
+
+  .menu-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
 }
