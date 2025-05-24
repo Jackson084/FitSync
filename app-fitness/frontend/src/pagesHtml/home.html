@@ -1,1 +1,123 @@
 <!--crie a pagina home.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitSync</title>
+  <link rel="stylesheet" href="/app-fitness/frontend/src/pagesCSS/home.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header com "perfil vazio" -->
+    <header>
+      <div class="profile" id="profile">
+        <button class="register-btn" onclick="abrirModal()">Cadastrar</button>
+      </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+      <div class="welcome-container">
+        <h1>Bem-vindo ao App Sync!</h1>
+        <p class="motivacional" id="fraseMotivacional"></p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-Ztt9qVEZIJ95sw6O7nDlW03cM3ehLpM9Q&s" alt="Capa do App" class="app-cover" />
+      </div>
+    </main>
+
+    <!-- Menu inferior flutuante -->
+    <div class="bottom-menu" id="bottomMenu">
+      <button class="menu-btn">Início</button>
+      <button class="menu-btn">Exercícios</button>
+      <button class="menu-btn">Dieta</button>
+      <button class="menu-btn">Configurações</button>
+    </div>
+
+    <!-- Botão flutuante de menu -->
+    <button class="floating-menu-btn" id="toggleMenu">+</button>
+
+    <!-- Modal de cadastro -->
+    <div class="modal-cadastro" id="modalCadastro">
+      <form class="form-cadastro" onsubmit="event.preventDefault(); registrarUsuario()">
+        <span class="fechar" onclick="fecharModal()">×</span>
+        <h2>Cadastro</h2>
+        <input type="text" id="nome" placeholder="Seu nome" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="senha" placeholder="Senha" required minlength="6"/>
+        <button type="submit">Registrar</button>
+        <p id="mensagem"></p>
+      </form>
+    </div>
+
+    <!-- Toast de notificação -->
+    <div class="toast" id="toast">Cadastro realizado com sucesso!</div>
+  </div>
+
+  <script>
+    // Frases motivacionais
+    const frases = [
+      "Você é mais forte do que imagina.",
+      "A persistência supera a resistência.",
+      "Cuide do seu corpo. É o único lugar que você tem para viver.",
+      "Desafie-se todos os dias!",
+      "O progresso acontece fora da zona de conforto."
+    ];
+
+    function mostrarFraseAleatoria() {
+      const index = Math.floor(Math.random() * frases.length);
+      document.getElementById("fraseMotivacional").textContent = frases[index];
+    }
+
+    // Abrir e fechar modal
+    function abrirModal() {
+      document.getElementById("modalCadastro").style.display = "flex";
+    }
+
+    function fecharModal() {
+      document.getElementById("modalCadastro").style.display = "none";
+    }
+
+    // Registrar usuário (simulado)
+    function registrarUsuario() {
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      if (!nome || !email) {
+        document.getElementById("mensagem").textContent = "Preencha todos os campos corretamente.";
+        return;
+      }
+
+      // Atualiza perfil
+      const profile = document.getElementById("profile");
+      profile.innerHTML = `
+        <div style="text-align: center;">
+          <div style="font-weight: bold;">${nome}</div>
+          <div style="font-size: 12px;">${email}</div>
+        </div>
+      `;
+
+      fecharModal();
+      mostrarToast();
+    }
+
+    // Toast
+    function mostrarToast() {
+      const toast = document.getElementById("toast");
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 3000);
+    }
+
+    // Menu flutuante toggle
+    const toggleMenuBtn = document.getElementById("toggleMenu");
+    const bottomMenu = document.getElementById("bottomMenu");
+
+    toggleMenuBtn.addEventListener("click", () => {
+      bottomMenu.classList.toggle("active");
+      toggleMenuBtn.classList.toggle("rotate");
+    });
+
+    // Inicialização
+    document.addEventListener("DOMContentLoaded", mostrarFraseAleatoria);
+  </script>
+</body>
+</html>
