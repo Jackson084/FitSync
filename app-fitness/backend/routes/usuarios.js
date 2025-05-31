@@ -32,4 +32,15 @@ router.post('/cadastrar', async (req, res) => {
     }
 });
 
+// Rota para listar todos os usuários
+router.get('/', async (req, res) => {
+    try {
+        const [usuarios] = await pool.query('SELECT id, nome, email FROM usuarios');
+        res.json(usuarios);
+    } catch (error) {
+        console.error('Erro ao buscar usuários:', error);
+        res.status(500).json({ erro: 'Erro ao buscar usuários.' });
+    }
+});
+
 module.exports = router;
